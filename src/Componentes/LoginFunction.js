@@ -1,6 +1,6 @@
 import React, {useState } from "react";
-// import Insert from "./Insert";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../estilos.css';
 
 
 function LoginFunction() {
@@ -17,8 +17,7 @@ function LoginFunction() {
         setPas(e.target.value);
     }
 
-    const handleSubmit = (event) =>{
-        
+    const handleSubmit = (event) =>{       
         const datos = new FormData();
         datos.append('usuario' , usuario);
         datos.append('pas', pas);
@@ -30,31 +29,34 @@ function LoginFunction() {
         .then(data =>{           
             localStorage.setItem('id',data);
             setMensajeError("Usuario correcto");
-            window.location.href="/insert";            
-        })
-        
-        .catch(error => setMensajeError("Usuario o contraseña incorrecto"))
-        
+            window.location.href="/insert"; 
+            localStorage.setItem('usuario',usuario);          
+        })        
+        .catch(error => setMensajeError("Usuario o contraseña incorrecto"))        
         event.preventDefault();
     }
+
+    const registro = (event) =>{
+        window.location.href="/registro"
+        event.preventDefault();
+    }
+
         return(
-            <form>
+            <form className="log">
+                <div className="form-group mt-3">
+                    <label>Usuario</label>
+                    <input type="text" className="form-control" placeholder="Usuario"  onChange={cambiarUsuario}/>
+                </div>
 
-            <h3>Log in</h3>
+                <div className="form-group mt-3">
+                    <label>Password</label>
+                    <input type="password" className="form-control" placeholder="Contraseña" onChange={cambiarPas} />
+                </div>
 
-            <div className="form-group">
-                <label>Usuario</label>
-                <input type="text" className="form-control" placeholder="Usuario"  onChange={cambiarUsuario}/>
-            </div>
-
-            <div className="form-group">
-                <label>Password</label>
-                <input type="password" className="form-control" placeholder="Contraseña" onChange={cambiarPas} />
-            </div>
-
-            <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={handleSubmit}>Sign in</button>
-            <p>{mensajeError}</p>
-        </form>
+                <button type="submit" className="btn btn-success m-5" onClick={handleSubmit}>Entrar</button>
+                <button type="submit" className="btn btn-success m-5" onClick={registro} >Registrarse</button>
+                <p>{mensajeError}</p>
+            </form>
 
         )
     }

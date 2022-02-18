@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../estilos.css";
-
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import ConexionFunction from './ConexionFunction';
 
 function InsertFunction() {  
     const [mensaje,setMensaje] = useState("");       
@@ -10,7 +11,7 @@ function InsertFunction() {
         setMensaje(e.target.value);
     }
     
-    const enviar = (event) =>{           
+    const enviar = () =>{           
         const datos = new FormData();
         datos.append('mensaje' , mensaje);
         datos.append('id', localStorage.getItem('id') );
@@ -21,19 +22,31 @@ function InsertFunction() {
         
         .then(res => res.json())
         .then(data=> console.log('Succees: '+ data))
-        .catch(error => setMensajeError('Error: Mensaje no insertado'))
-        event.preventDefault();
+        .catch(error => setMensajeError('Error: Mensaje no insertado ' + error))       
       }    
 
+      const volver = (e) =>{
+          window.location.href="/";
+          e.preventDefault();  
+      }
+
         return(
-            <div className="enviar">
-                <form>
-                    <label>Introduzca su mensaje</label><br/>
-                    <input type="text" placeholder="mensaje" onChange={cambiarMensaje} ></input><br/>                
-                    <button onClick={enviar}> Envia </button>
+            <>
+                
+                <form className="mensaje">
+                    <div className="form-group mt-3">
+                        <h3>Bienvenido {localStorage.getItem('usuario')}</h3>
+                        <input type="text" className="form-control mt-3" placeholder="Escriba su mensaje"  onChange={cambiarMensaje}/>
+                    </div>               
+                    <button type = "submit" className="btn btn-success m-5" onClick={enviar}> Enviar Mensaje </button>
+                    <button type = "submit" className="btn btn-success m-5" onClick={volver} > Cambiar usuario </button>
                     <p>{mensajeError}</p>
                 </form>
-            </div>
+            
+            
+                <ConexionFunction />
+            
+            </> 
         )
     
 }
