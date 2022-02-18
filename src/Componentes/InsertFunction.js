@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../estilos.css";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import ConexionFunction from './ConexionFunction';
+import Chat from './chat';
 
 function InsertFunction() {  
     const [mensaje,setMensaje] = useState("");       
@@ -44,7 +44,7 @@ function InsertFunction() {
                 </form>
             
             
-                <ConexionFunction />
+                <Chat />
             
             </> 
         )

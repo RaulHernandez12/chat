@@ -3,7 +3,7 @@ import  "../estilos.css";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
-function Conexion (props){          
+function Chat (){          
     const [mensajes,setMensaje] = useState([]);    
     
     useState(() => {
@@ -54,4 +54,4 @@ function Conexion (props){
 }
 
 
-export default Conexion;
+export default Chat;
