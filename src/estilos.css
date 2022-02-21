@@ -6,7 +6,7 @@
     overflow-y:auto;
     word-wrap: break-word;
     margin: auto;
-    /* text-align: center; */
+    
 }
 
 .log{
@@ -23,12 +23,44 @@
 
 
 
-.propio{
-    text-align: right;
-    color:green;
-    
+.propio{  
+    display: flex;
+    justify-content: end;
+    padding: 5px;
+}
+
+.propio h6{
+    background-color: #4EB870;
+    color: white;
+    border-radius: 8px;
+    padding: 3px;
+    overflow: auto;
+}
+
+.otro{
+    display: flex;
+    justify-content: start;
+    padding: 5px;
+}
+
+.otro h6{
+    background-color: #F1F1F1;
+    border-radius: 8px;
+    padding: 3px;
+    overflow: auto;
 }
 
 h1{
     text-align: center;
+}
+
+
+.borrarTodo{
+    text-align: center;
+}
+
+.eliminar{
+    background-color: white;
+    border-color: white;
+    border-radius: 100%;
 }

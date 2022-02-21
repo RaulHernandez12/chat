@@ -27,10 +27,10 @@ function LoginFunction() {
         })
         .then(res => res.json())
         .then(data =>{           
-            localStorage.setItem('id',data);
-            setMensajeError("Usuario correcto");
-            window.location.href="/insert"; 
-            localStorage.setItem('usuario',usuario);          
+            localStorage.setItem('id',data);           
+            setMensajeError("Usuario correcto");           
+            localStorage.setItem('usuario',usuario);
+            setTimeout('window.location.href="/insert"',1000);          
         })        
         .catch(error => setMensajeError("Usuario o contraseña incorrecto"))        
         event.preventDefault();
@@ -57,7 +57,7 @@ function LoginFunction() {
 
                     <button type="submit" className="btn btn-success m-5" onClick={handleSubmit}>Entrar</button>
                     <button type="submit" className="btn btn-success m-5" onClick={registro} >Registrarse</button>
-                    <p>{mensajeError}</p>
+                    <h5>{mensajeError}</h5>
                 </form>
             </>
         )

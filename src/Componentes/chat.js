@@ -54,16 +54,18 @@ function Chat (){
                                             
                 {mensajes.map(el=>{
                     if(el.Nombre === localStorage.getItem('usuario')){
-                        return <div  className="propio" key = {el.NumeroMens}><p >{el.Nombre}: {el.Mensaje} <button className="btn btn-success  btn-sm" value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p></div>
+                        return <div  className="propio" key = {el.NumeroMens}><h6 > {el.mensaje} <button className="eliminar" value={el.NumeroMens} onClick={eliminar}>🗑</button></h6></div>
                     }else{
-                        return <div className="otro" key = {el.NumeroMens}><p  >{el.Nombre}: {el.Mensaje} <button className="btn btn-success btn-sm " value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p> </div>
+                        return <div className="otro" key = {el.NumeroMens}><h6  >{el.Nombre}: {el.mensaje} <button className="eliminar" value={el.NumeroMens} onClick={eliminar}>🗑</button></h6> </div>
                     }
                 } )}  
                        
                                                   
                 </div>
-
-                <button onClick={vaciar}>Eliminar Todo</button>
+                <div className="borrarTodo">
+                    <button className="btn btn-success eliminar mt-3" onClick={vaciar}>Eliminar Todo</button>
+                </div>
+                
             </>
         );
     

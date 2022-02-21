@@ -63,7 +63,7 @@ export default function Registro(){
                 
                 <button type="submit" className="btn btn-success m-5" onClick={handleSubmit} >Registrarse</button>
                 <button type = "submit" className="btn btn-success m-5" onClick={volver} > Volver a inicio </button>
-                <p>{mensajeError}</p>
+                <h5>{mensajeError}</h5>
             </form>
         </>
     )

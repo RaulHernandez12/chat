@@ -4,7 +4,7 @@
         $usuario = $_POST["usuario"];
         $pas = $_POST["pas"];
 
-        $consulta = "SELECT * FROM usuarios ";
+        $consulta = "SELECT * FROM usuarios WHERE nombre= '$usuario'";
         $resultado = mysqli_query($conexion,$consulta);
         $resultado = mysqli_fetch_all($resultado,MYSQLI_ASSOC);
 

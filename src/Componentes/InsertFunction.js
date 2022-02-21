@@ -21,9 +21,15 @@ function InsertFunction() {
         })
         
         .then(res => res.json())
-        .then(data=> console.log('Succees: '+ data))
+        .then(data=>{
+            if(data === false ){
+                setMensajeError("Debe insertar un mensaje");
+            }else{
+                window.location.reload();
+            }
+        }) 
         .catch(error => setMensajeError('Error: Mensaje no insertado ' + error))     
-        
+        e.preventDefault();
       }    
 
       const volver = (e) =>{
@@ -41,7 +47,7 @@ function InsertFunction() {
                     </div>               
                     <button type = "submit" className="btn btn-success m-5" onClick={enviar}> Enviar Mensaje </button>
                     <button type = "submit" className="btn btn-success m-5" onClick={volver} > Cambiar usuario </button>
-                    <p>{mensajeError}</p>
+                    <h6>{mensajeError}</h6>
                 </form>
             
             
