@@ -42,22 +42,24 @@ function LoginFunction() {
     }
 
         return(
-            <form className="log">
-                <div className="form-group mt-3">
-                    <label>Usuario</label>
-                    <input type="text" className="form-control" placeholder="Usuario"  onChange={cambiarUsuario}/>
-                </div>
+            <>
+                <h1>LOGIN</h1>
+                <form className="log">
+                    <div className="form-group mt-3">
+                        <label>Usuario</label>
+                        <input type="text" className="form-control" placeholder="Usuario"  onChange={cambiarUsuario}/>
+                    </div>
 
-                <div className="form-group mt-3">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Contraseña" onChange={cambiarPas} />
-                </div>
+                    <div className="form-group mt-3">
+                        <label>Password</label>
+                        <input type="password" className="form-control" placeholder="Contraseña" onChange={cambiarPas} />
+                    </div>
 
-                <button type="submit" className="btn btn-success m-5" onClick={handleSubmit}>Entrar</button>
-                <button type="submit" className="btn btn-success m-5" onClick={registro} >Registrarse</button>
-                <p>{mensajeError}</p>
-            </form>
-
+                    <button type="submit" className="btn btn-success m-5" onClick={handleSubmit}>Entrar</button>
+                    <button type="submit" className="btn btn-success m-5" onClick={registro} >Registrarse</button>
+                    <p>{mensajeError}</p>
+                </form>
+            </>
         )
     }
 

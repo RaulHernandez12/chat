@@ -30,8 +30,10 @@ export default function Registro(){
             if(data === "Debe insertar un usuario" || data === "El usuario ya esta registrado"){
                 console.log("Succes: " + data)         
                 setMensajeError(data);
-            }else
-            window.location.href="/";            
+            }else{
+            setMensajeError(data);  
+            setTimeout("window.location.href='/'",2000);     
+            }   
         })        
         .catch(error => {
         console.log(error);
@@ -40,22 +42,30 @@ export default function Registro(){
         event.preventDefault();
     }
 
+    const volver = (e) =>{
+        window.location.href="/";
+        e.preventDefault();  
+    }
     return(
-        <form className="log">
-            <div className="form-group mt-3">
-                <label>Inserte nombre de usuario</label>
-                <input type="text" className="form-control" placeholder="Usuario" onChange={cambiarUsuario} />
-            </div>
+        <>
+            <h1>Registrarse</h1>
+            <form className="log">
+                <div className="form-group mt-3">
+                    <label>Inserte nombre de usuario</label>
+                    <input type="text" className="form-control" placeholder="Usuario" onChange={cambiarUsuario} />
+                </div>
 
-            <div className="form-group mt-3">
-                <label>Inserte contraseña </label>
-                <input type="password" className="form-control" placeholder="Contraseña" onChange={cambiarPas} />
-            </div>
+                <div className="form-group mt-3">
+                    <label>Inserte contraseña </label>
+                    <input type="password" className="form-control" placeholder="Contraseña" onChange={cambiarPas} />
+                </div>
 
-            
-            <button type="submit" className="btn btn-success m-5" onClick={handleSubmit} >Registrarse</button>
-            <p>{mensajeError}</p>
-        </form>
+                
+                <button type="submit" className="btn btn-success m-5" onClick={handleSubmit} >Registrarse</button>
+                <button type = "submit" className="btn btn-success m-5" onClick={volver} > Volver a inicio </button>
+                <p>{mensajeError}</p>
+            </form>
+        </>
     )
 }
 

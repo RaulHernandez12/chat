@@ -49,13 +49,14 @@ function Chat (){
     
         return(
             <>
+              
                 <div className='chat'>
                                             
                 {mensajes.map(el=>{
                     if(el.Nombre === localStorage.getItem('usuario')){
-                        return <p className="propio" key = {el.NumeroMens}>{el.Nombre}: {el.Mensaje} <button className="btn btn-success eliminar" value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p> 
+                        return <div  className="propio" key = {el.NumeroMens}><p >{el.Nombre}: {el.Mensaje} <button className="btn btn-success  btn-sm" value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p></div>
                     }else{
-                        return <p className="otro" key = {el.NumeroMens}>{el.Nombre}: {el.Mensaje} <button className="btn btn-success eliminar" value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p> 
+                        return <div className="otro" key = {el.NumeroMens}><p  >{el.Nombre}: {el.Mensaje} <button className="btn btn-success btn-sm " value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p> </div>
                     }
                 } )}  
                        

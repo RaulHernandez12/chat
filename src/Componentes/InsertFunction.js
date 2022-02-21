@@ -33,7 +33,7 @@ function InsertFunction() {
 
         return(
             <>
-                
+                <h1>CHAT</h1>
                 <form className="mensaje">
                     <div className="form-group mt-3">
                         <h3>Bienvenido {localStorage.getItem('usuario')}</h3>
