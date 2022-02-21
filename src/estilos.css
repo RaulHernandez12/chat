@@ -24,3 +24,8 @@
 .eliminar{
     height: 35px;
 }
+
+.propio{
+    text-align: right;
+    color:green
+}
