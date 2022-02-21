@@ -11,7 +11,7 @@ function InsertFunction() {
         setMensaje(e.target.value);
     }
     
-    const enviar = () =>{           
+    const enviar = (e) =>{           
         const datos = new FormData();
         datos.append('mensaje' , mensaje);
         datos.append('id', localStorage.getItem('id') );
@@ -22,7 +22,8 @@ function InsertFunction() {
         
         .then(res => res.json())
         .then(data=> console.log('Succees: '+ data))
-        .catch(error => setMensajeError('Error: Mensaje no insertado ' + error))       
+        .catch(error => setMensajeError('Error: Mensaje no insertado ' + error))     
+        
       }    
 
       const volver = (e) =>{

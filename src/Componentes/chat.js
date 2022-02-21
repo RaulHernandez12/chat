@@ -6,14 +6,19 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 function Chat (){          
     const [mensajes,setMensaje] = useState([]);    
     
+    
     useState(() => {
         fetch("http://localhost:80/chatFinal/chat/db/consulta.php")
         .then(res => res.json())
         .then(
             (result) => {
                 setMensaje(result)
+                    
             }
         )
+        
+            
+        
     });
 
     const eliminar = (event) =>{
@@ -40,11 +45,21 @@ function Chat (){
         })        
         .catch(error => console.log(error));  
     }
-       
+    
+    
         return(
             <>
                 <div className='chat'>
-                        {mensajes.map(el =>(<p key = {el.NumeroMens}>{el.Nombre}: {el.mensaje} <button className="btn btn-success eliminar" value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p> ))}                             
+                                            
+                {mensajes.map(el=>{
+                    if(el.Nombre === localStorage.getItem('usuario')){
+                        return <p className="propio" key = {el.NumeroMens}>{el.Nombre}: {el.Mensaje} <button className="btn btn-success eliminar" value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p> 
+                    }else{
+                        return <p className="otro" key = {el.NumeroMens}>{el.Nombre}: {el.Mensaje} <button className="btn btn-success eliminar" value={el.NumeroMens} onClick={eliminar}>Eliminar</button></p> 
+                    }
+                } )}  
+                       
+                                                  
                 </div>
 
                 <button onClick={vaciar}>Eliminar Todo</button>
