@@ -7,13 +7,12 @@ function Chat (){
     const [mensajes,setMensaje] = useState([]);    
     
     
-    useState(() => {
+    useState(() => {       
         fetch("http://localhost:80/chatFinal/chat/db/consulta.php")
         .then(res => res.json())
         .then(
             (result) => {
                 setMensaje(result)
-                    
             }
         )
         
@@ -50,7 +49,7 @@ function Chat (){
         return(
             <>
               
-                <div className='chat'>
+                <div className='chat' id="chat">
                                             
                 {mensajes.map(el=>{
                     if(el.Nombre === localStorage.getItem('usuario')){

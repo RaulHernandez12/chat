@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../estilos.css";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Chat from './chat';
+import { scroller } from 'react-scroll';
 
 function InsertFunction() {  
     const [mensaje,setMensaje] = useState("");       
@@ -11,7 +12,7 @@ function InsertFunction() {
         setMensaje(e.target.value);
     }
     
-    const enviar = (e) =>{           
+    const enviar = (e) =>{  
         const datos = new FormData();
         datos.append('mensaje' , mensaje);
         datos.append('id', localStorage.getItem('id') );
